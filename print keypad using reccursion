@@ -1,0 +1,61 @@
+public class solution {
+
+	public static void printKeypad(int input){
+		// Write your code here
+		String output="";
+      printKeypad(input,output);
+        }
+      
+      public static void printKeypad(int input,String output){
+        
+        if(input==0){
+           System.out.println(output);
+          }
+        String word=getOptions(input%10);
+        for(int j=0;j<word.length();j++){
+           printKeypad(input/10,word.charAt(j)+output);
+        }
+        
+           
+          }
+    
+  
+  public static String getOptions(int digit) {
+
+		//		if(digit == 2) {
+		//			return "abc";
+		//		}else if(digit == 3) {
+		//			return "def";
+		//		}
+		String ans = "";
+		switch(digit) {
+		case 2:
+			ans = "abc";
+			break;
+		case 3:
+			ans =  "def";
+			break;
+		case 4:
+			ans = "ghi";
+			break;
+          case 5:
+            ans = "jkl";
+            break;
+          case 6:
+            ans ="mno";
+            break;
+          case 7:
+            ans="pqrs";
+            break;
+          case 8:
+            ans="tuv";
+            break;
+          case 9:
+            ans="wxyz";
+            break;
+		default:
+			ans = "";
+		}
+    return ans;
+}
+}
