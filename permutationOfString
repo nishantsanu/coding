@@ -1,0 +1,30 @@
+public class solution {
+	
+	public static String[] permutationOfString(String input){
+		// Write your code here
+		if(input.length()==1){
+          String[] a={input};
+          return a;
+        }
+      String[] ans=new String[fact(input.length())];
+      int j=0;
+      for(int i=0;i<input.length();i++){
+      String[] smallans=permutationOfString(input.substring(0,i)+input.substring(i+1,input.length()));
+        for(int k=0;k<smallans.length;k++){
+          ans[j++]=input.charAt(i)+smallans[k];
+        }
+         }
+      return ans;
+    }
+	
+      public static int fact(int n){
+        if(n==0){
+          return 1;
+        }
+        int smallans=fact(n-1);
+        int ans=n*smallans;
+        return ans;
+      }
+	}
+	
+
