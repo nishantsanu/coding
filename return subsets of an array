@@ -1,0 +1,37 @@
+public class solution {
+
+	// Return a 2D array that contains all the subsets
+	public static int[][] subsets(int input[]) {
+		// Write your code here
+	if(input.length==0){
+      int[][] ans=new int[1][0];
+      return ans;
+    }
+      int t[]=new int[input.length-1];
+      for(int i=1;i<input.length;i++){
+        t[i-1]=input[i];
+      }
+      int[][] smallans=subsets(t);
+      int[][] ans=new int[2*smallans.length][];
+      int k=0;
+      int row=0;
+      for(int i=0;i<smallans.length;i++){
+       // ans[k]=new int[smallans[i].length];
+        ans[k]=smallans[i];
+        k++;
+}
+     
+      for(int i=0;i<smallans.length;i++){
+        ans[k]=new int[1+smallans[i].length];
+        ans[k][0]=input[0];
+        for(int c=1;c<ans[k].length;c++){
+          ans[k][c]=smallans[i][c-1];
+        }
+        k++;
+        
+      }
+     
+      return ans;
+      
+	}
+}
